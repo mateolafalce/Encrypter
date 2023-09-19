@@ -5,7 +5,7 @@ mod decrypt_file;
 #[path="./io/menu.rs"]
 mod menu;
 
-const PATH: &str = "/";
+const PATH: &str = "";
 
 fn main(){
     let encrypte_decrypt_option: u8 = menu::menu();
