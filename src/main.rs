@@ -7,7 +7,7 @@ mod check_existence;
 #[path="./io/menu.rs"]
 mod menu;
 
-const PATH: &str = "/";
+const PATH: &str = "";
 
 fn main(){
     check_existence::check_existence(PATH);

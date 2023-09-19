@@ -1,11 +1,11 @@
 pub fn show_menu_options(option: bool){
 	std::process::Command::new("clear").status().unwrap();
-	let mut selection_encrypte: char = ' ';
-	let mut selection_decrypt: char = '*';
+	let mut encrypte: char = ' ';
+	let mut decrypt: char = '*';
 	if !option {
-		selection_encrypte = '*';
-		selection_decrypt = ' ';
+		encrypte = '*';
+		decrypt = ' ';
 	}
-    println!("[{}] ENCRYPTE THE FILE",  selection_encrypte);
-    println!("[{}] DECRYPT THE FILE",  selection_decrypt);
+    println!("[{}] ENCRYPTE THE FILE", encrypte);
+    println!("[{}] DECRYPT THE FILE", decrypt);
 }
