@@ -16,6 +16,6 @@ pub fn encrypte_file(file_path: &str){
 			std::fs::write(file_path.clone(), str_to_base64.clone()).unwrap();
 			println!("{}", str_to_base64);
 		},
-		Err(e) => println!("File doesn`t exist, e:{}", e),
+		Err(error) => println!("error:{}", error),
 	}
 }
