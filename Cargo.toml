@@ -2,7 +2,7 @@
 name = "personal_encrypter"
 version = "0.1.0"
 edition = "2021"
-authors = ["Mateo Lafalce <mateo.lafalce04@gmail.com>"]
+authors = ["Mateo Lafalce <mateolafalce@protonmail.com>"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

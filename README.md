@@ -3,12 +3,10 @@
 Change the **PATH** const in the `main.rs` file, with your path file.Then run `cargo run --release` and encrypt your critic content!
 
 ```rust
-const PATH: &str = "/home/mateo/Escritorio/Passwords/passwords.txt";
+const PATH: &str = "/home/passwords.txt";
 
-fn main() {
-    std::process::Command::new("clear").status().unwrap();
+fn main(){
     let option: u8 = menu::menu();
-    std::process::Command::new("clear").status().unwrap();
     match option {
         0 => encrypte_file::encrypte_file(PATH),
         1 => decrypt_file::decrypt_file(PATH),

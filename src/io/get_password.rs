@@ -1,8 +1,7 @@
-pub fn get_password(op: &str) -> String {
+pub fn get_password(lock_unlock: &str) -> String {
 	println!("⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘");
-	println!("Enter the password to {} of your file", op);
+	println!("Enter the password to {} of your file", lock_unlock);
 	println!("⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘");
-	//Just take the password, don`t print it
-    let password = rpassword::read_password().unwrap();
-    password
+    let hidden_password = rpassword::read_password().unwrap();
+    hidden_password
 }

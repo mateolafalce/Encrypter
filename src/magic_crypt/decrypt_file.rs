@@ -1,26 +1,22 @@
 #[path="../io/get_password.rs"]
 mod get_password;
+
 use magic_crypt::MagicCryptTrait;
 use std::io::Read;
 
-pub fn decrypt_file(path: &str){
+pub fn decrypt_file(file_path: &str){
 	std::process::Command::new("clear").status().unwrap();
-	//Get unlock password
-	let password = get_password::get_password("unlock");
-	match std::fs::File::open(path.clone()) {
+	let password: String = get_password::get_password("unlock");
+	match std::fs::File::open(file_path.clone()) {
 		Ok(mut file) => {
-			//Decrypt file selected
-			let mut content: String = String::new();
-			file.read_to_string(&mut content).unwrap();
-			let mc: magic_crypt::MagicCrypt256 = magic_crypt::new_magic_crypt!(password, 256);
-			//Show decrypt file
-			std::process::Command::new("clear").status().unwrap();
-			//println!("{}", mc.decrypt_base64_to_string(&content).unwrap());
-			match mc.decrypt_base64_to_string(&content) {
-				Ok(passwords) => println!("{}",passwords),
-				Err(_) => println!("{}", content),
+			let mut critic_content: String = String::new();
+			file.read_to_string(&mut critic_content).unwrap();
+			let decryptor: magic_crypt::MagicCrypt256 = magic_crypt::new_magic_crypt!(password, 256);
+			match decryptor.decrypt_base64_to_string(&critic_content) {
+				Ok(decrypt_content) => println!("{}", decrypt_content),
+				Err(_) => println!("{}", critic_content),
 			}
 		},
-		Err(e) => println!("File doesn`t exist, e:{}", e),
+		Err(error) => println!("File doesn't exist, e:{}", error),
 	}
 }
