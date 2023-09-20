@@ -5,7 +5,6 @@ use magic_crypt::MagicCryptTrait;
 use std::io::Read;
 
 pub fn encrypte_file(file_path: &str){
-	std::process::Command::new("clear").status().unwrap();
 	let password = get_password::get_password("lock");
 	match std::fs::File::open(file_path.clone()) {
 		Ok(mut file) => {
