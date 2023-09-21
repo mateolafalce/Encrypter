@@ -1,5 +1,5 @@
 [package]
-name = "personal_encrypter"
+name = "encrypter"
 version = "0.1.0"
 edition = "2021"
 authors = ["Mateo Lafalce <mateolafalce@protonmail.com>"]

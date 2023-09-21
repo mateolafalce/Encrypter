@@ -1,15 +1,15 @@
-#[path="./magic_crypt/encrypte_file.rs"]
-mod encrypte_file;
-#[path="./magic_crypt/decrypt_file.rs"]
-mod decrypt_file;
-#[path="./io/check_existence.rs"]
+#[path = "./io/check_existence.rs"]
 mod check_existence;
-#[path="./io/menu.rs"]
+#[path = "./magic_crypt/decrypt_file.rs"]
+mod decrypt_file;
+#[path = "./magic_crypt/encrypte_file.rs"]
+mod encrypte_file;
+#[path = "./io/menu.rs"]
 mod menu;
 
 const PATH: &str = "";
 
-fn main(){
+fn main() {
     check_existence::check_existence(PATH);
     let encrypte_decrypt_option: u8 = menu::menu();
     match encrypte_decrypt_option {
