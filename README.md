@@ -1,6 +1,6 @@
 # Encrypter 🔐
 
-Change the **PATH** const in the `main.rs` file, with your path file.Then run `cargo run --release` and encrypt your critic content!
+Change the **PATH** const in the `main.rs` file, with your path file. Then run `cargo run --release` and encrypt your critic content!
 
 ```rust
 #[path="./magic_crypt/encrypte_file.rs"]
