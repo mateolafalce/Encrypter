@@ -25,15 +25,6 @@ fn main(){
 }
 ```
 
-## Dependencies
-
-```toml
-[dependencies]
-magic-crypt = "3.1.12"
-rpassword = "7.2.0"
-termion = "2.0.1"
-```
-
 ---
 
 <div align="center">
