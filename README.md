@@ -3,25 +3,27 @@
 Change the **PATH** const in the `main.rs` file, with your path file. Then run `cargo run --release` and encrypt your critic content!
 
 ```rust
-#[path="./magic_crypt/encrypte_file.rs"]
-mod encrypte_file;
-#[path="./magic_crypt/decrypt_file.rs"]
-mod decrypt_file;
-#[path="./io/check_existence.rs"]
-mod check_existence;
-#[path="./io/menu.rs"]
-mod menu;
+mod io;
+mod magic_crypt;
+mod utils;
 
-const PATH: &str = "/password.txt";
+use crate::{
+    io::{get::get_path, menu::menu},
+    magic_crypt::{decrypt_file::decrypt_file, encrypte_file::encrypte_file},
+    utils::{check_existence, verify_os},
+};
 
-fn main(){
-    check_existence::check_existence(PATH);
-    let encrypte_decrypt_option: u8 = menu::menu();
+fn main() -> std::io::Result<()> {
+    verify_os()?;
+    let path: &str = &get_path();
+    check_existence(path)?;
+    let encrypte_decrypt_option: u8 = menu();
     match encrypte_decrypt_option {
-        0 => encrypte_file::encrypte_file(PATH),
-        1 => decrypt_file::decrypt_file(PATH),
-        _ => (),
-    }
+        0 => encrypte_file(path),
+        1 => decrypt_file(path),
+        _ => std::process::exit(1),
+    }?;
+    Ok(())
 }
 ```
 

@@ -1,5 +1,5 @@
 /**************************************************************************
- *   show_menu_options.rs  --  This file is part of encrypter.            *
+ *   get.rs  --  This file is part of encrypter.                          *
  *                                                                        *
  *   Copyright (C) 2023 Mateo Lafalce                                     *
  *                                                                        *
@@ -18,15 +18,16 @@
  *                                                                        *
  **************************************************************************/
 
-pub fn show_menu_options(option: &str) -> std::io::Result<()> {
-    std::process::Command::new("clear").status()?;
-    let mut encrypte: char = ' ';
-    let mut decrypt: char = '*';
-    if option == "lock selected" {
-        encrypte = '*';
-        decrypt = ' ';
-    }
-    println!("[{}] ENCRYPT THE FILE", encrypte);
-    println!("[{}] DECRYPT THE FILE", decrypt);
-    Ok(())
+use rpassword::read_password;
+
+pub fn get_password(lock_unlock: &str) -> String {
+    println!("Enter the password to {} of your file", lock_unlock);
+    read_password().unwrap()
+}
+
+pub fn get_path() -> String {
+    println!("Enter the path of your file to encrypte");
+    let mut input: String = String::new();
+    std::io::stdin().read_line(&mut input).unwrap();
+    input
 }

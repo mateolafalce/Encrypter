@@ -1,5 +1,5 @@
 /**************************************************************************
- *   show_menu_options.rs  --  This file is part of encrypter.            *
+ *   utils.rs  --  This file is part of encrypter.                        *
  *                                                                        *
  *   Copyright (C) 2023 Mateo Lafalce                                     *
  *                                                                        *
@@ -18,15 +18,19 @@
  *                                                                        *
  **************************************************************************/
 
-pub fn show_menu_options(option: &str) -> std::io::Result<()> {
-    std::process::Command::new("clear").status()?;
-    let mut encrypte: char = ' ';
-    let mut decrypt: char = '*';
-    if option == "lock selected" {
-        encrypte = '*';
-        decrypt = ' ';
+use std::{path::Path, process};
+
+pub fn check_existence(file_path: &str) -> std::io::Result<()> {
+    if !Path::new(file_path).exists() {
+        println!("File doesn't exist");
+        process::exit(1);
     }
-    println!("[{}] ENCRYPT THE FILE", encrypte);
-    println!("[{}] DECRYPT THE FILE", decrypt);
+    Ok(())
+}
+
+pub fn verify_os() -> std::io::Result<()> {
+    if !cfg!(target_os = "linux") {
+        println!("Error, encrypter just suport \n -linux");
+    }
     Ok(())
 }

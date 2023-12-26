@@ -1,12 +1,12 @@
 [package]
 name = "encrypter"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 authors = ["Mateo Lafalce <mateolafalce@protonmail.com>"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-k_board = "1.1.3"
-magic-crypt = "3.1.12"
-rpassword = "7.2.0"
+k_board = "1.2.1"
+magic-crypt = "3.1.13"
+rpassword = "7.3.1"
